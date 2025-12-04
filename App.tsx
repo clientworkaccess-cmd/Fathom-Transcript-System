@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { AppHeader } from './components/AppHeader';
+import { Navbar } from './components/Navbar';
 import { ChatWindow } from './components/ChatWindow';
 import { ChatInput } from './components/ChatInput';
 import { useFathomMeetings } from './hooks/useFathomMeetings';
@@ -26,10 +26,13 @@ const App: React.FC = () => {
   const [isAgentTyping, setIsAgentTyping] = useState<boolean>(false);
 
   const handleSendMessage = useCallback(async (messageText: string) => {
-    if (!messageText.trim() || !selectedMeeting) {
-      if (!selectedMeeting) {
-        alert("Please select a meeting context before sending a message.");
-      }
+    if (!messageText.trim()) {
+      return;
+    }
+    
+    // Alert if no meeting is selected, but don't crash
+    if (!selectedMeeting) {
+      alert("Please select a meeting context in the top right before sending a message.");
       return;
     }
 
@@ -75,7 +78,7 @@ const App: React.FC = () => {
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]"></div>
       </div>
 
-      <AppHeader 
+      <Navbar 
         meetings={meetings}
         selectedMeetingId={selectedMeeting?.recordingId || ''}
         onMeetingChange={handleMeetingChange}
