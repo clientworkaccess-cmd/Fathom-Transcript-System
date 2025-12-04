@@ -4,14 +4,14 @@ import { BotIcon } from './icons/BotIcon';
 import { MeetingSelector } from './MeetingSelector';
 import type { MeetingInfo } from '../types';
 
-interface HeaderProps {
+interface AppHeaderProps {
   meetings: MeetingInfo[];
   selectedMeetingId: string;
   onMeetingChange: (meetingId: string) => void;
   isLoading: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ 
+export const AppHeader: React.FC<AppHeaderProps> = ({ 
   meetings, 
   selectedMeetingId, 
   onMeetingChange, 
