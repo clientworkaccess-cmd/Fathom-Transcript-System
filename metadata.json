@@ -1,0 +1,5 @@
+{
+  "name": "n8n Fathom Chat Dashboard",
+  "description": "A mini web dashboard that allows users to chat directly with an n8n workflow agent, and includes dynamic meeting selection using the Fathom API.",
+  "requestFramePermissions": []
+}
