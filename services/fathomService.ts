@@ -37,7 +37,7 @@ async function fetchAirtableRecords(): Promise<AirtableRecord[]> {
 
 /**
  * Fetches records from Airtable and maps them to the MeetingInfo interface.
- * Now gets Client Name directly from Airtable 'Client' column.
+ * Now gets Title directly from Airtable 'Title' column.
  */
 export async function getProcessedMeetings(): Promise<MeetingInfo[]> {
   if (!AIRTABLE_PERSONAL_ACCESS_TOKEN || !AIRTABLE_BASE_ID || !AIRTABLE_TABLE_NAME) {
@@ -50,12 +50,12 @@ export async function getProcessedMeetings(): Promise<MeetingInfo[]> {
     .filter(record => record.fields.Recording_id) // Only process records with a recording_id
     .map((record): MeetingInfo => {
         const recordingId = String(record.fields.Recording_id); // Ensure it is a string
-        // Fetch client name directly from Airtable 'Client' field
-        const clientName = record.fields.Client || 'Unknown Client';
+        // Fetch Title directly from Airtable 'Title' field
+        const title = record.fields.Title || 'Untitled Meeting';
 
         return {
             recordingId: recordingId,
-            clientName: clientName,
+            title: title,
             date: record.createdTime,
         };
     });

@@ -33,7 +33,7 @@ export const MeetingSelector: React.FC<MeetingSelectorProps> = ({
         ) : (
           meetings.map((meeting) => (
             <option key={meeting.recordingId} value={meeting.recordingId}>
-              {meeting.clientName} — {String(meeting.recordingId)}
+              {meeting.title}
             </option>
           ))
         )}
