@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { Header } from './components/Header';
+import { AppHeader } from './components/AppHeader';
 import { ChatWindow } from './components/ChatWindow';
 import { ChatInput } from './components/ChatInput';
 import { useFathomMeetings } from './hooks/useFathomMeetings';
@@ -75,7 +75,7 @@ const App: React.FC = () => {
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]"></div>
       </div>
 
-      <Header 
+      <AppHeader 
         meetings={meetings}
         selectedMeetingId={selectedMeeting?.recordingId || ''}
         onMeetingChange={handleMeetingChange}
